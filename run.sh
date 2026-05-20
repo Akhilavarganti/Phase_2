@@ -1,12 +1,24 @@
 #!/bin/bash
 
-cd ~/ecu_jobs
+CLONE_DIR="ecu_repo"
 
-echo "Starting..."
+echo "Enter Git Repo URL:"
+read REPO_URL
 
-selected_file=$(python3 git_file_selector.py | tail -n 1)
+# Step 1: Clone or Pull
+if [ -d "$CLONE_DIR" ]; then
+    echo "Repo already exists. Pulling latest changes..."
+    cd $CLONE_DIR
+    git pull
+    cd ..
+else
+    echo "Cloning repository..."
+    git clone $REPO_URL $CLONE_DIR
+fi
 
-echo "Selected file: $selected_file"
+# Step 2: Show testcases
+python3 select_testcase.py
 
-# 👉 Pass to your logic
-python3 ecu_runner.py "input/$selected_file"
+# Step 3: Run your project
+echo "Running project..."
+python3 main.py
