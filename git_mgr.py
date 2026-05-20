@@ -1,183 +1,233 @@
-#!/usr/bin/env python3
+#!/bin/bash
 
-from git import Repo, GitCommandError
-from pathlib import Path
-import yaml
-import json
-import shutil
-import re
-import os
+set -e
+
+echo "======================================="
+echo " ECU GIT DYNAMIC TESTCASE MANAGER"
+echo "======================================="
 
 # ==========================================
-# CONFIGURATION
+# STEP 0: INSTALL REQUIREMENTS
 # ==========================================
 
-BASE_DIR = Path.home() / "repositories"
+echo ""
+echo "[STEP 0] Checking Git installation..."
 
-ALLOWED_DOMAINS = [
-    "github.com",
-    "gitlab.com",
-    "bitbucket.org"
-]
+sudo apt update
+sudo apt install -y git
 
-SUPPORTED_EXTENSIONS = [
-    ".json",
-    ".yaml",
-    ".yml",
-    ".txt"
-]
+echo "[DONE] Git ready."
 
 # ==========================================
-# CREATE BASE DIRECTORY
+# STEP 1: GET GIT URL FROM USER
 # ==========================================
 
-BASE_DIR.mkdir(parents=True, exist_ok=True)
+echo ""
+read -p "Enter Git Repository URL: " GIT_URL
+
+if [ -z "$GIT_URL" ]; then
+    echo "[ERROR] Git URL cannot be empty."
+    exit 1
+fi
 
 # ==========================================
-# VALIDATE GIT URL
+# STEP 2: EXTRACT REPO NAME
 # ==========================================
 
-def is_valid_git_url(url):
-    pattern = r"^(https:\/\/|git@)"
-    if not re.match(pattern, url):
-        return False
+REPO_NAME=$(basename "$GIT_URL" .git)
 
-    return any(domain in url for domain in ALLOWED_DOMAINS)
+echo ""
+echo "[INFO] Repository Name: $REPO_NAME"
 
 # ==========================================
-# EXTRACT REPO NAME
+# STEP 3: CLONE OR UPDATE REPO
 # ==========================================
 
-def get_repo_name(git_url):
-    repo_name = git_url.split("/")[-1]
-    repo_name = repo_name.replace(".git", "")
-    return repo_name
+if [ -d "$REPO_NAME/.git" ]; then
+    echo ""
+    echo "[STEP 3] Repository exists. Pulling latest changes..."
+
+    cd "$REPO_NAME"
+
+    git pull
+
+    cd ..
+
+else
+    echo ""
+    echo "[STEP 3] Cloning repository..."
+
+    git clone "$GIT_URL"
+
+fi
+
+echo "[DONE] Repository ready."
 
 # ==========================================
-# CLONE OR UPDATE REPOSITORY
+# STEP 4: CREATE REQUIRED STRUCTURE
 # ==========================================
 
-def clone_or_update_repo(git_url):
-    repo_name = get_repo_name(git_url)
-    repo_path = BASE_DIR / repo_name
+echo ""
+echo "[STEP 4] Ensuring folder structure exists..."
 
-    try:
-        if repo_path.exists():
-            print(f"\n[INFO] Updating existing repository: {repo_name}")
-            repo = Repo(repo_path)
-            repo.remotes.origin.pull()
-        else:
-            print(f"\n[INFO] Cloning repository: {repo_name}")
-            Repo.clone_from(git_url, repo_path)
+mkdir -p "$REPO_NAME/input"
+mkdir -p "$REPO_NAME/output"
+mkdir -p "$REPO_NAME/jobs"
 
-        print("[SUCCESS] Repository ready.")
-        return repo_path
-
-    except GitCommandError as e:
-        print(f"[ERROR] Git operation failed:\n{e}")
-        return None
+echo "[DONE] Structure verified."
 
 # ==========================================
-# FIND TESTCASE FILES
+# STEP 5: FIND TESTCASE FILES
 # ==========================================
 
-def find_testcases(repo_path):
-    testcase_files = []
+echo ""
+echo "[STEP 5] Searching testcase files..."
 
-    for ext in SUPPORTED_EXTENSIONS:
-        testcase_files.extend(repo_path.rglob(f"*{ext}"))
+TESTCASE_FILES=()
 
-    return testcase_files
+while IFS= read -r -d '' file
+do
+    TESTCASE_FILES+=("$file")
+done < <(find "$REPO_NAME/input" -type f \( \
+-name "*.txt" -o \
+-name "*.json" -o \
+-name "*.yaml" -o \
+-name "*.yml" \
+\) -print0)
 
-# ==========================================
-# DISPLAY TESTCASE LIST
-# ==========================================
-
-def display_testcases(testcases):
-    print("\nAvailable Testcases:\n")
-
-    for idx, file in enumerate(testcases, start=1):
-        print(f"{idx}. {file.relative_to(file.parents[1])}")
-
-# ==========================================
-# READ TESTCASE CONTENT
-# ==========================================
-
-def read_testcase(file_path):
-    ext = file_path.suffix.lower()
-
-    try:
-        if ext == ".json":
-            with open(file_path, "r") as f:
-                return json.load(f)
-
-        elif ext in [".yaml", ".yml"]:
-            with open(file_path, "r") as f:
-                return yaml.safe_load(f)
-
-        else:
-            with open(file_path, "r") as f:
-                return f.read()
-
-    except Exception as e:
-        return f"[ERROR] Failed to read testcase:\n{e}"
+if [ ${#TESTCASE_FILES[@]} -eq 0 ]; then
+    echo "[ERROR] No testcase files found inside:"
+    echo "$REPO_NAME/input"
+    exit 1
+fi
 
 # ==========================================
-# MAIN PROGRAM
+# STEP 6: DISPLAY TESTCASES
 # ==========================================
 
-def main_git():
+echo ""
+echo "======================================="
+echo " AVAILABLE TESTCASES"
+echo "======================================="
 
-    print("\n==== Dynamic Git Testcase Manager ====\n")
+INDEX=1
 
-    git_url = input("Enter Git Repository URL:\n> ").strip()
-
-    # Validate URL
-    if not is_valid_git_url(git_url):
-        print("\n[ERROR] Invalid or unsupported Git URL.")
-        return
-
-    # Clone or update repo
-    repo_path = clone_or_update_repo(git_url)
-
-    if not repo_path:
-        return
-
-    # Find testcase files
-    testcases = find_testcases(repo_path)
-
-    if not testcases:
-        print("\n[INFO] No testcase files found.")
-        return
-
-    # Display testcases
-    display_testcases(testcases)
-
-    # Select testcase
-    try:
-        choice = int(input("\nSelect testcase number:\n> "))
-
-        if choice < 1 or choice > len(testcases):
-            print("[ERROR] Invalid selection.")
-            return
-
-    except ValueError:
-        print("[ERROR] Please enter a valid number.")
-        return
-
-    selected_file = testcases[choice - 1]
-
-    print(f"\n[INFO] Selected testcase:\n{selected_file}")
-
-    # Read testcase
-    content = read_testcase(selected_file)
-
-    print("\n==== TESTCASE CONTENT ====\n")
-    print(content)
+for file in "${TESTCASE_FILES[@]}"
+do
+    BASENAME=$(basename "$file")
+    echo "$INDEX. $BASENAME"
+    INDEX=$((INDEX+1))
+done
 
 # ==========================================
-# RUN
+# STEP 7: USER SELECTS TESTCASE
 # ==========================================
 
-if __name__ == "__main_git__":
-    main_git()
+echo ""
+read -p "Select testcase number: " CHOICE
+
+if ! [[ "$CHOICE" =~ ^[0-9]+$ ]]; then
+    echo "[ERROR] Invalid input."
+    exit 1
+fi
+
+if [ "$CHOICE" -lt 1 ] || [ "$CHOICE" -gt "${#TESTCASE_FILES[@]}" ]; then
+    echo "[ERROR] Invalid testcase selection."
+    exit 1
+fi
+
+SELECTED_FILE="${TESTCASE_FILES[$((CHOICE-1))]}"
+SELECTED_BASENAME=$(basename "$SELECTED_FILE")
+
+echo ""
+echo "[INFO] Selected testcase: $SELECTED_BASENAME"
+
+# ==========================================
+# STEP 8: CREATE/UPDATE jobs.json
+# ==========================================
+
+echo ""
+echo "[STEP 8] Updating jobs.json..."
+
+cat > "$REPO_NAME/jobs/jobs.json" <<EOF
+{
+    "selected_testcase": "$SELECTED_BASENAME",
+    "status": "pending"
+}
+EOF
+
+echo "[DONE] jobs.json updated."
+
+# ==========================================
+# STEP 9: CREATE/UPDATE config.json
+# ==========================================
+
+echo ""
+echo "[STEP 9] Updating config.json..."
+
+cat > config.json <<EOF
+{
+    "git": {
+        "enabled": true,
+        "repo_path": "./$REPO_NAME",
+        "branch": "main",
+        "auto_pull": true,
+        "auto_push": true
+    }
+}
+EOF
+
+echo "[DONE] config.json updated."
+
+# ==========================================
+# STEP 10: PUSH CHANGES TO GIT
+# ==========================================
+
+echo ""
+echo "[STEP 10] Pushing updates to Git..."
+
+cd "$REPO_NAME"
+
+git add .
+
+git commit -m "Updated selected testcase" || true
+
+git push || true
+
+cd ..
+
+echo "[DONE] Git sync completed."
+
+# ==========================================
+# STEP 11: BUILD APPLICATION
+# ==========================================
+
+echo ""
+echo "[STEP 11] Building application..."
+
+if [ -f build_on_pi.sh ]; then
+    chmod +x build_on_pi.sh
+    ./build_on_pi.sh
+    echo "[DONE] Build successful."
+else
+    echo "[WARNING] build_on_pi.sh not found. Skipping build."
+fi
+
+# ==========================================
+# STEP 12: RUN APPLICATION
+# ==========================================
+
+echo ""
+echo "[STEP 12] Running application..."
+
+if [ -f ./dist/uds_disgnostics ]; then
+    chmod +x ./dist/uds_disgnostics
+    ./dist/uds_disgnostics
+else
+    echo "[WARNING] ./dist/uds_disgnostics not found."
+fi
+
+echo ""
+echo "======================================="
+echo " PROCESS COMPLETED"
+echo "======================================="
