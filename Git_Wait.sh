@@ -25,3 +25,33 @@ done
 if [ ! -f "$APP_PATH" ]; then
     echo "[WARNING] Application not found after waiting $WAIT_TIME seconds."
 fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+#!/bin/bash
+
+# Ask user for Git URL
+read -p "Enter Git Repository URL: " repo_url
+
+# Ask for destination folder
+read -p "Enter local folder name: " folder_name
+
+# Clone repo
+git clone "$repo_url" "$folder_name"
+
+# Check result
+if [ $? -eq 0 ]; then
+    echo "Repository cloned successfully into $folder_name"
+else
+    echo "Failed to clone repository"
+fi
