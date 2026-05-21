@@ -40,18 +40,17 @@ fi
 
 #!/bin/bash
 
-# Ask user for Git URL
-read -p "Enter Git Repository URL: " repo_url
+read -p "Enter Git URL: " repo_url
+read -p "Enter file path inside repo: " file_path
+read -p "Enter destination folder: " dest
 
-# Ask for destination folder
-read -p "Enter local folder name: " folder_name
+# Clone temporarily
+git clone "$repo_url" temp_repo
 
-# Clone repo
-git clone "$repo_url" "$folder_name"
+# Copy required file
+cp "temp_repo/$file_path" "$dest"
 
-# Check result
-if [ $? -eq 0 ]; then
-    echo "Repository cloned successfully into $folder_name"
-else
-    echo "Failed to clone repository"
-fi
+# Cleanup
+rm -rf temp_repo
+
+echo "File copied successfully"
