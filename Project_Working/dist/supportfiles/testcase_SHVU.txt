@@ -1,0 +1,82 @@
+#TC_ID/PC_ID , Testcase_Description , Service_ID , SubService_ID , Expected_Response_Data , Write_Data , Addressing , Format , Status_Mask , Communication_Type , controltype
+TC_ID-647 , Conditions not correct(invalid range)(14 FFEEEE) , 0x14 , 0xFFFFFE , 03 7F 14 31 AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-646 , Fault memory clear Extended session(14 FFFFFF) , 0x14 , 0x8000FF , 01 54 AA AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-645 , Fault memory clear Extended session(14 FFFFFF) , 0x14 , 0xFFFFFF , 01 54 AA AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-209 , 3RD RH SEAT Heat Mode to the High STOP , 0x2F , 0xF021 , 40 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-208 , 3RD RH SEAT Heat Mode to the High START , 0x2F , 0xF021 , 39 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-207 , IOC_ReclineFWD_OUT STOP , 0x2F , 0xF020 , 38 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-206 , IOC_ReclineFWD_OUT START , 0x2F , 0xF020 , 37 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-205 , 3RD LH SEAT Heat Mode to the High STOP , 0x2F , 0xF01F , 36 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-204 , 3RD LH SEAT Heat Mode to the High START , 0x2F , 0xF01F , 35 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-203 , IOC_LegrestDown_OUT STOP , 0x2F , 0xF01E , 34 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-202 , IOC_LegrestDown_OUT START , 0x2F , 0xF01E , 33 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-201 , 3RD SEAT Heat Mode to the High STOP , 0x2F , 0xF01D , 32 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-200 , 3RD SEAT Heat Mode to the High START , 0x2F , 0xF01D , 31 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-199 , REAR RH SEAT Vent Mode to the High STOP , 0x2F , 0xF01C , 30 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-198 , REAR RH SEAT Vent Mode to the High START , 0x2F , 0xF01C , 29 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-197 , REAR RH SEAT Heat Mode to the High STOP , 0x2F , 0xF01B , 28 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-196 , REAR RH SEAT Heat Mode to the High START , 0x2F , 0xF01B , 27 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-195 , REAR LH SEAT Vent Mode to the High STOP , 0x2F , 0xF01A , 26 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-194 , REAR LH SEAT Vent Mode to the High START , 0x2F , 0xF01A , 25 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-193 , REAR LH SEAT Heat Mode to the High STOP , 0x2F , 0xF019 , 24 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-192 , REAR LH SEAT Heat Mode to the High START , 0x2F , 0xF019 , 23 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-191 , REAR SEAT Vent Mode to the High STOP , 0x2F , 0xF018 , 22 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-190 , REAR SEAT Vent Mode to the High START , 0x2F , 0xF018 , 21 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-189 , REAR SEAT Heat Mode to the High STOP , 0x2F , 0xF017 , 20 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-188 , REAR SEAT Heat Mode to the High START , 0x2F , 0xF017 , 19 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-187 , PASSENGER SEAT Vent Mode to the High STOP , 0x2F , 0xF016 , 18 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-186 , PASSENGER SEAT Vent Mode to the High START , 0x2F , 0xF016 , 17 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-185 , PASSENGER SEAT Heat Mode to the High STOP , 0x2F , 0xF015 , 16 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-184 , PASSENGER SEAT Heat Mode to the High START , 0x2F , 0xF015 , 15 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-183 , DRIVER SEAT Vent Mode to the High STOP , 0x2F , 0xF014 , 14 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-182 , DRIVER SEAT Vent Mode to the High START , 0x2F , 0xF014 , 13 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-181 , DRIVER SEAT Heat Mode to the High STOP , 0x2F , 0xF013 , 12 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-180 , DRIVER SEAT Heat Mode to the High START , 0x2F , 0xF013 , 11 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-179 , FRONT SEAT Vent Mode to the High STOP , 0x2F , 0xF012 , 10 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-178 , FRONT SEAT Vent Mode to the High START , 0x2F , 0xF012 , 9 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-177 , FRONT SEAT Heat Mode to the High STOP , 0x2F , 0xF011 , 8 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x00
+TC_ID-176 , FRONT SEAT Heat Mode to the High START , 0x2F , 0xF011 , 7 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x03
+TC_ID-175 , Supported check DID , 0x2F , 0xF010 , 06 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    , 0x02
+PC_ID-025 , Start Extended session , 0x10 , 0x03 , 06 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-174 , Incorrect message length(22) , 0x22 ,    , 03 7F 22 13 AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-173 , Service not supported in Active session , 0x22 , - , 0x62 ,    , Physical , Hex ,    ,    ,   
+TC_ID-172 , Pending Response , 0x22 , - , 0x62 ,    , Physical , Hex ,    ,    ,   
+TC_ID-171 , Security access denied , 0x22 , - , 0x62 ,    , Physical , Hex ,    ,    ,   
+TC_ID-170 , Request out of range(invalid identifier))(22 F1FF) , 0x22 , 0xF1FF , 03 7F 22 31 AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-169 , SystemNameOrEngineTypeDataIdentifier_Read(Extendedsession) , 0x22 , 0xF197 , 07 62 F1 97 4D 4B 42 44 ,    , Physical , Hex ,    ,    ,   
+TC_ID-168 , S_W_Version_Dataidentifier_F1_DD_Read(Extendedsession) , 0x22 , 0xF1DD , 10 0B 62 F1 DD 30 31 2E 30 30 2E 30 31 AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-167 , ECU_Software_UNIT1_Version_F1_B1_Read(Extendedsession) , 0x22 , 0xF1B1 , 10 08 62 F1 B1 30 31 2E 30 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-166 , ECU_Software_UNIT_number_F1_B0_Read(Extendedsession) , 0x22 , 0xF1B0 , 04 62 F1 B0 01 AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-165 , ECU_Supplier_Code_F1_A1_Read(Extendedsession) , 0x22 , 0xF1A1 , 07 62 F1 A1 61 38 31 32 ,    , Physical , Hex ,    ,    ,   
+TC_ID-164 , Software_Version_for_HKMC_Vehicle_Manufacture_F1_A0_Read(Extendedsession) , 0x22 , 0xF1A0 , 10 08 62 F1 A0 30 31 2E 30 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-163 , SystemSupplierECUSoftwareVersionNumbe_DataIdentifier_F1_95_Read(Extendedsession) , 0x22 , 0xF195 , 10 08 62 F1 95 30 31 2E 30 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-162 , ECUSoftwareUnit1IVDDataIdentifier_F1_C1_Read(Extendedsession) , 0x22 , 0xF1C1 , 10 23 62 F1 C1 9F 27 A1 70 58 C0 0F 18 3B 64 D2 4C B6 6F 93 8D D5 1D FE 9D 05 67 39 C7 3A AF CE CC 78 EB 03 AF AA AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-161 , HardwareVersionNumber_F1_93_Read(Extendedsession) , 0x22 , 0xF193 , 10 08 62 F1 93 30 31 2E 30 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-160 , Vehicle_Manufacturer_ECU_HW_Number_F1_91_Read(Extendedsession) , 0x22 , 0xF191 , 10 08 62 F1 91 30 31 2E 30 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-159 , ECU_Serial_Number_F1_8C_Read(Extendedsession) , 0x22 , 0xF18C , 10 23 62 F1 8C 30 30 30 30 30 30 30 30 33 31 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 AA AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-158 , Manufacturing_F1_8B_Read(Extendedsession) , 0x22 , 0xF18B , 07 62 F1 8B 00 00 00 00 ,    , Physical , Hex ,    ,    ,   
+TC_ID-157 , Vehicle_Manufacturer_Spare_Part_Number_F1_87_Read(Extendedsession) , 0x22 , 0xF187 , 10 0D 62 F1 87 39 36 35 34 30 53 42 30 30 30 ,    , Physical , Hex ,    ,    ,   
+TC_ID-156 , B_CAN_Database_Version_F1_00_Read(Extendedsession) , 0x22 , 0xF100 , 06 62 F1 00 25 02 01 AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-155 , RX_SWIN_F1_EF_Read(Extended session) , 0x22 , 0xF1EF , 10 2B 62 F1 EF 07 16 0B 52 31 30 20 41 59 31 2F 31 2F 30 0C 52 31 35 35 20 41 59 31 2F 31 2F 30 0C 52 31 35 36 20 41 59 31 2F 31 2F 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+PC_ID-024 , Start Extended session , 0x10 , 0x03 , 06 50 03 00 32 01 F4 AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-154 , SystemNameOrEngineTypeDataIdentifier_Read(Defaultsession) , 0x22 , 0xF197 , 07 62 F1 97 4D 4B 42 44 ,    , Physical , Hex ,    ,    ,   
+TC_ID-153 , S_W_Version_Dataidentifier_F1_DD_Read(Defaultsession) , 0x22 , 0xF1DD , 10 0B 62 F1 DD 30 31 2E 30 30 2E 30 31 AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-152 , ECU_Software_UNIT1_Version_F1_B1_Read(Defaultsession) , 0x22 , 0xF1B1 , 10 08 62 F1 B1 30 31 2E 30 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-151 , ECU_Software_UNIT_number_F1_B0_Read(Defaultsession) , 0x22 , 0xF1B0 , 04 62 F1 B0 01 AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-150 , ECU_Supplier_Code_F1_A1_Read(Defaultsession) , 0x22 , 0xF1A1 , 07 62 F1 A1 61 38 31 32 ,    , Physical , Hex ,    ,    ,   
+TC_ID-149 , Software_Version_for_HKMC_Vehicle_Manufacture_F1_A0_Read(Defaultsession) , 0x22 , 0xF1A0 , 10 08 62 F1 A0 30 31 2E 30 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-148 , SystemSupplierECUSoftwareVersionNumbe_DataIdentifier_F1_95_Read(Defaultsession) , 0x22 , 0xF195 , 10 08 62 F1 95 30 31 2E 30 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-147 , ECUSoftwareUnit1IVDDataIdentifier_F1_C1_Read(Defaultsession) , 0x22 , 0xF1C1 , 10 23 62 F1 C1 9F 27 A1 70 58 C0 0F 18 3B 64 D2 4C B6 6F 93 8D D5 1D FE 9D 05 67 39 C7 3A AF CE CC 78 EB 03 AF AA AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-146 , HardwareVersionNumber_F1_93_Read(Defaultsession) , 0x22 , 0xF193 , 10 08 62 F1 93 30 31 2E 30 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-145 , Vehicle_Manufacturer_ECU_HW_Number_F1_91_Read(Defaultsession) , 0x22 , 0xF191 , 10 08 62 F1 91 30 31 2E 30 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-144 , ECU_Serial_Number_F1_8C_Read(Defaultsession) , 0x22 , 0xF18C , 10 23 62 F1 8C 30 30 30 30 30 30 30 30 33 31 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 AA AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-143 , Manufacturing_F1_8B_Read(Defaultsession) , 0x22 , 0xF18B , 07 62 F1 8B 00 00 00 00 ,    , Physical , Hex ,    ,    ,   
+TC_ID-142 , Vehicle_Manufacturer_Spare_Part_Number_F1_87_Read(Defaultsession) , 0x22 , 0xF187 , 10 0D 62 F1 87 39 36 35 34 30 53 42 30 30 30 ,    , Physical , Hex ,    ,    ,   
+TC_ID-141 , B_CAN_Database_Version_F1_00_Read(Defaultsession) , 0x22 , 0xF100 , 06 62 F1 00 25 02 01 AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-140 , RX_SWIN_F1_EF_Read(Defaultsession) , 0x22 , 0xF1EF , 10 2B 62 F1 EF 07 16 0B 52 31 30 20 41 59 31 2F 31 2F 30 0C 52 31 35 35 20 41 59 31 2F 31 2F 30 0C 52 31 35 36 20 41 59 31 2F 31 2F 30 AA AA AA AA AA ,    , Physical , Hex ,    ,    ,   
+PC_ID-023 , Start default session , 0x10 , 0x01 , 06 50 01 00 32 01 F4 AA ,    , Physical , Hex ,    ,    ,   
+TC_ID-590 , SendKey_ASK_Send(27 12) , 0x27 , 0x12 , 03 7F 27 35 00 00 00 00 ,    , Physical , Hex ,    ,    ,   
+TC_ID-588 , Incorrect message length(27 11 13) , 0x27 , 0x1112 , 03 7F 27 13 00 00 00 00 ,    , Physical , Hex ,    ,    ,   
+TC_ID-587 , Sub function not supported(out ofrange)(27 56) , 0x27 , 0x56 , 03 7F 27 12 00 00 00 00 ,    , Physical , Hex ,    ,    ,   
+TC_ID-585 , RequestSeed_ASK_Request(27 11) , 0x27 , 0x11 , 0x67 ,    , Physical , Hex ,    ,    ,   
+TC_ID-573 , Start Default session , 0x10 , 0x01 , 06 50 01 00 32 01 F4 00 ,    , Physical , Hex ,    ,    ,   
