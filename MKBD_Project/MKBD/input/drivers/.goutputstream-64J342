@@ -1,0 +1,117 @@
+import os
+import threading
+import can
+import time
+import logging
+from datetime import datetime
+
+
+class CANLogger:
+    def __init__(self, channel='can0', interface='socketcan', can_fd=True, log_dir='/home/mobase/Inte_Project/output/can_logs'):
+        """
+        Initializes the CANLogger with the provided CAN interface settings
+        and log directory.
+        """
+        self.channel = channel
+        self.interface = interface
+        self.can_fd = can_fd
+        self.running = False
+        self.thread = None
+        self.bus = None
+        self.notifier = None
+        self.log_path = None
+        self.file = None
+        self.log_dir = log_dir  # This will define the log directory for the entire class
+
+    def _format_msg(self, msg, direction="Rx"):
+        """
+        Format a CAN message to a log string.
+        """
+        timestamp = f"{msg.timestamp:.6f}"
+        can_id = f"{msg.arbitration_id:03X}"
+        dlc = f"{msg.dlc}"
+        data = ' '.join(f"{byte:02X}" for byte in msg.data)
+        return f"{timestamp} {can_id} {direction} d {dlc} {data}\n"
+
+    def _log_loop(self):
+        """
+        Loop to continuously read and log received CAN messages.
+        """
+        while self.running:
+            try:
+                msg = self.bus.recv(1)
+                if msg:
+                    line = self._format_msg(msg, direction="Rx")
+                    self.file.write(line)
+                    self.file.flush()
+            except Exception as e:
+                logging.error(f"CAN log error: {e}")
+                continue
+
+    def _on_tx_message(self, msg):
+        """
+        Handle and log transmitted CAN messages.
+        """
+        try:
+            line = self._format_msg(msg, direction="Tx")
+            self.file.write(line)
+            self.file.flush()
+        except Exception as e:
+            logging.error(f"TX log error: {e}")
+
+    def start(self):
+        """
+        Start CAN bus logging with a fixed log path based on the timestamp.
+        """
+        if self.running:
+            self.stop()
+
+        os.makedirs(self.log_dir, exist_ok=True)
+
+        # Use current timestamp to create a unique log file name
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.log_path = os.path.join(self.log_dir, f"can_log_{timestamp}.asc")
+
+        try:
+            # Open log file in write mode
+            self.file = open(self.log_path, 'w')
+
+            # Connect to the CAN bus interface
+            self.bus = can.interface.Bus(channel=self.channel, bustype=self.interface, fd=self.can_fd)
+
+            # Set up CAN bus message notifier to log both Rx and Tx messages
+            self.notifier = can.Notifier(self.bus,[self._on_tx_message])
+
+            # Start logging loop in a separate thread for non-blocking operation
+            self.running = True
+            self.thread = threading.Thread(target=self._log_loop, daemon=True)
+            self.thread.start()
+
+            logging.info(f"CAN logging started: {self.log_path}")
+        except Exception as e:
+            logging.error(f"Failed to start CAN logger: {e}")
+
+    def stop(self):
+        """
+        Stop CAN bus logging and clean up resources.
+        """
+        self.running = False
+
+        # Wait for the logging thread to finish
+        if self.thread:
+            self.thread.join()
+
+        # Stop the notifier for CAN messages
+        if self.notifier:
+            self.notifier.stop()
+
+        # Close the log file
+        if self.file:
+            self.file.close()
+            logging.info(f"CAN logging stopped: {self.log_path}")
+
+        # Reset class attributes
+        self.thread = None
+        self.file = None
+        self.bus = None
+        self.notifier = None

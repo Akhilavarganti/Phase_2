@@ -1,0 +1,8 @@
+/******************Revision History*******************/
+File Name: change_log.txt (\..\CDT_ProjectFiles\server_client\change_log.txt)
+R01 - 25'06/09 - Initial Version - by Prudhvi Raj
+R02 - 26'01/30 - Updated the document format – by Prudhvi Raj
+
+/****************************************************/
+
+Added Timestamp in the DLL Server code for each request received from Raspberry Pi.
