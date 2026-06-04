@@ -1,0 +1,87 @@
+{
+  "gpio": {
+    "buttons": {
+      "first": 12,
+      "second": 16,
+      "enter": 20,
+      "power": 21
+    }
+  },
+  "display": {
+    "width": 128,
+    "height": 64,
+    "i2c_bus": 1,
+    "i2c_address": "0x3C",
+    "font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    "font_size": 9
+  },
+  "uds": {
+    "target_ecu": "MFSW",
+    "logging": {
+      "filters": true
+    },
+    "addressing_modes": {
+      "physical": {
+        "tx_id": "0x7A6",
+        "rx_id": "0x7AE",
+        "is_extended": false
+      },
+      "functional": {
+        "tx_id": "0x0",
+        "rx_id": "0x7AE",
+        "is_extended": false
+      }
+    },
+    "udp_server": {
+      "ip": "192.168.10.220",
+      "port": 5005,
+      "max_retries": 3,
+      "retry_delay": 1.0,
+      "expected_key_length": 8
+    },
+    "can": {
+      "channel": "can0",
+      "interface": "socketcan",
+      "bringup_on_startup": true,
+      "shutdown_on_exit": true,
+      "bitrate": 500000,
+      "dbitrate": 1000000,
+      "restart_ms": 1000,
+      "can_fd": false
+    },
+    "isotp": {
+      "stmin": 10,
+      "blocksize": 8,
+      "wftmax": 0,
+      "tx_padding": 0,
+      "max_frame_size": 4095,
+      "can_fd": false,
+      "bitrate_switch": true
+    },
+    "delays": {
+      "default": 4
+    },
+    "immediate_mode": true,
+    "timing": {
+      "s3_client": 1000,
+      "s3_server": 5000,
+      "p2_client": 150,
+      "p2_extended_client": 5000,
+      "p2_server": 100,
+      "p2_extended_server": 1950
+    },
+    "tester_present": "0x3E",
+    "default_session": "0x01",
+    "extended_session": "0x03"
+  },
+  "menu_combinations": {
+    "(12, 20)": "ECU Information",
+    "(16, 20)": "Testcase Execution",
+    "(12, 16, 20)": "ECU Updater",
+    "(16, 12, 20)": "File Transfer"
+  },
+  "file_transfer_submenu_combinations": {
+    "(12, 20)": "USB -> Raspberry Pi",
+    "(16, 20)": "Output -> USB"
+  }
+}
