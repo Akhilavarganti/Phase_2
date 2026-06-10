@@ -1,0 +1,29 @@
+def wait_for_final_response(self, client, tc_id, step_desc):
+    P2 = self.client_config["P2_timeout"]
+    P2_star = self.client_config["P2_star_timeout"]
+
+    # Initial wait with P2
+    response = client.conn.wait_frame(timeout=P2)
+    time.sleep(0.05)
+
+    start_time = time.time()
+    current_timeout = P2_star  # used after 0x78
+
+    while response and response[0] == 0x7F and response[2] == 0x78:
+        logging.info(
+            f"{tc_id} {step_desc} -> 0x78 Response Pending, waiting for final response..."
+        )
+
+        # Wait using P2* after response pending
+        response = client.conn.wait_frame(timeout=P2_star)
+
+        time.sleep(0.05)  # small delay (optional, reduced from 1s)
+
+        # Check total elapsed time under P2*
+        if time.time() - start_time > current_timeout:
+            logging.warning(
+                f"{tc_id} {step_desc} -> Timed out waiting after 0x78 (P2*)"
+            )
+            break
+
+    return response
