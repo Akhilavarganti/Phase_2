@@ -1,6 +1,26 @@
 #!/bin/bash
+echo "Enable SPI, I2C..."
+sudo raspi-config
 
+echo "Edit config.txt...."
+sudo nano /boot/firmware/config.txt
 set -e
+
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APP_NAME="uds_diagnostics"
+OUTPUT_DIR="$PROJECT_DIR/dist"
+DATA_DIR="$PROJECT_DIR/venv/lib/python3.13/site-packages"
+
+echo ""
+echo "=============================================="
+echo "  UDS Diagnostics - Raspberry Pi Build Tool"
+echo "=============================================="
+echo ""
+
+
+mkdir -p "$OUTPUT_DIR/output"
+mkdir -p "$OUTPUT_DIR/supportfiles"
+
 
 echo "======================================="
 echo " ECU GIT DYNAMIC TESTCASE MANAGER"
@@ -64,35 +84,19 @@ fi
 echo "[DONE] Repository ready."
 
 # ==========================================
-# STEP 4: CREATE REQUIRED STRUCTURE
+# STEP 4: FIND TESTCASE FILES
 # ==========================================
 
 echo ""
-echo "[STEP 4] Ensuring folder structure exists..."
-
-mkdir -p "$REPO_NAME/input"
-mkdir -p "$REPO_NAME/output"
-mkdir -p "$REPO_NAME/jobs"
-
-echo "[DONE] Structure verified."
-
-# ==========================================
-# STEP 5: FIND TESTCASE FILES
-# ==========================================
-
-echo ""
-echo "[STEP 5] Searching testcase files..."
+echo "[STEP 4] Searching testcase files..."
 
 TESTCASE_FILES=()
 
 while IFS= read -r -d '' file
 do
     TESTCASE_FILES+=("$file")
-done < <(find "$REPO_NAME/input" -type f \( \
--name "*.txt" -o \
--name "*.json" -o \
--name "*.yaml" -o \
--name "*.yml" \
+done < <(find "$REPO_NAME" -type f \( \
+-name "*.txt" \
 \) -print0)
 
 if [ ${#TESTCASE_FILES[@]} -eq 0 ]; then
@@ -102,7 +106,7 @@ if [ ${#TESTCASE_FILES[@]} -eq 0 ]; then
 fi
 
 # ==========================================
-# STEP 6: DISPLAY TESTCASES
+# STEP 5: DISPLAY TESTCASES
 # ==========================================
 
 echo ""
@@ -120,7 +124,7 @@ do
 done
 
 # ==========================================
-# STEP 7: USER SELECTS TESTCASE
+# STEP 6: USER SELECTS TESTCASE
 # ==========================================
 
 echo ""
@@ -142,90 +146,47 @@ SELECTED_BASENAME=$(basename "$SELECTED_FILE")
 echo ""
 echo "[INFO] Selected testcase: $SELECTED_BASENAME"
 
+
 # ==========================================
-# STEP 8: CREATE/UPDATE jobs.json
+# STEP 7: COPY TESTCASE FILE
 # ==========================================
+# Copy required file
+dest="$PROJECT_DIR/dist/supportfiles"
+cp "$SELECTED_FILE" "$dest"
+
+echo "File copied successfully"
 
 echo ""
-echo "[STEP 8] Updating jobs.json..."
-
-cat > "$REPO_NAME/jobs/jobs.json" <<EOF
-{
-    "selected_testcase": "$SELECTED_BASENAME",
-    "status": "pending"
-}
-EOF
-
-echo "[DONE] jobs.json updated."
 
 # ==========================================
-# STEP 9: CREATE/UPDATE config.json
+# STEP 8: RUNNING APPLICATION
 # ==========================================
+echo "[STEP 8] Running application..."
 
-echo ""
-echo "[STEP 9] Updating config.json..."
-
-cat > config.json <<EOF
-{
-    "git": {
-        "enabled": true,
-        "repo_path": "./$REPO_NAME",
-        "branch": "main",
-        "auto_pull": true,
-        "auto_push": true
-    }
-}
-EOF
-
-echo "[DONE] config.json updated."
+if [ -f ./dist/uds_diagnostics ]; then
+    chmod +x ./dist/uds_diagnostics
+    sudo ./dist/uds_diagnostics
+    
+else
+    echo "[WARNING] ./dist/uds_diagnostics not found."
+fi
 
 # ==========================================
-# STEP 10: PUSH CHANGES TO GIT
+# STEP 9: Copy and push output to GIT
 # ==========================================
+echo "[STEP 9] Copying output to GIT..."
 
-echo ""
-echo "[STEP 10] Pushing updates to Git..."
 
+mkdir -p "$REPO_NAME/output"
+
+cp -r "$PROJECT_DIR/dist/output" "$REPO_NAME"
 cd "$REPO_NAME"
-
-git add .
-
-git commit -m "Updated selected testcase" || true
-
-git push || true
+git add output/
+git commit -m "Output"
+git push 
 
 cd ..
 
-echo "[DONE] Git sync completed."
-
-# ==========================================
-# STEP 11: BUILD APPLICATION
-# ==========================================
-
-echo ""
-echo "[STEP 11] Building application..."
-
-if [ -f build_on_pi.sh ]; then
-    chmod +x build_on_pi.sh
-    ./build_on_pi.sh
-    echo "[DONE] Build successful."
-else
-    echo "[WARNING] build_on_pi.sh not found. Skipping build."
-fi
-
-# ==========================================
-# STEP 12: RUN APPLICATION
-# ==========================================
-
-echo ""
-echo "[STEP 12] Running application..."
-
-if [ -f ./dist/uds_disgnostics ]; then
-    chmod +x ./dist/uds_disgnostics
-    ./dist/uds_disgnostics
-else
-    echo "[WARNING] ./dist/uds_disgnostics not found."
-fi
 
 echo ""
 echo "======================================="
