@@ -1,52 +1,21 @@
 import os
+import shutil
 
-TESTCASE_DIR = "ecu_repo/input"
+project_dir = self.base_dir          # same as $PROJECT_DIR
+repo_name = self.repo_path          # same as $REPO_NAME
 
-if not os.path.exists(TESTCASE_DIR):
-    print("❌ Folder not found:", TESTCASE_DIR)
-    exit()
+src = os.path.join(project_dir, "dist", "output")
+dst = os.path.join(repo_name, "output")
 
-# 👇 Change here (.txt instead of .json)
-files = [f for f in os.listdir(TESTCASE_DIR) if f.endswith(".txt")]
+# Ensure destination folder exists (like mkdir -p)
+os.makedirs(dst, exist_ok=True)
 
-if not files:
-    print("❌ No .txt testcases found")
-    exit()
+# Copy contents of output → repo/output (keep old files, overwrite if same)
+for item in os.listdir(src):
+    s = os.path.join(src, item)
+    d = os.path.join(dst, item)
 
-print("\nAvailable Testcases:\n")
-
-for i, file in enumerate(files, 1):
-    print(f"{i}. {file}")
-
-try:
-    choice = int(input("\nEnter testcase number: "))
-    selected = files[choice - 1]
-except:
-    print("❌ Invalid selection")
-    exit()
-
-print(f"\nSelected: {selected}")
-
-with open("selected_testcase.txt", "w") as f:
-    f.write(selected)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-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
+    if os.path.isdir(s):
+        shutil.copytree(s, d, dirs_exist_ok=True)
+    else:
+        shutil.copy2(s, d)
