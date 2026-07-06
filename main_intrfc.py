@@ -7,7 +7,7 @@ import shutil
 import RPi.GPIO as GPIO
 from drivers import git_manager
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from drivers import oled_display, button_input, config_loader, uds_client, transfer_file, Interface_bringup
+from drivers import oled_display, button_input, config_loader, uds_client, transfer_file
 
 if getattr(sys, 'frozen', False):
     BASE_DIR = os.path.dirname(sys.executable)
@@ -116,13 +116,56 @@ class UDSApp:
         result = subprocess.run("ip link show can0", shell=True, stdout=subprocess.PIPE)
         return "can0" in result.stdout.decode()
         
+    def is_spi_enabled(self):
+        try:
+            result = subprocess.check_output("lsmod | grep spi_bcm2835", shell=True)
+            return bool(result.strip())
+        except subprocess.CalledProcessError:
+            return False
     
+    def is_i2c_enabled(self):
+        try:
+            result = subprocess.check_output("lsmod | grep i2c_bcm2835", shell=True)
+            return bool(result.strip())
+        except subprocess.CalledProcessError:
+            return False
+
+    def enable_spi(self):
+        logging.info("Enabling SPI...")
+        subprocess.run(["sudo", "raspi-config", "nonint", "do_spi", "0"], check=True)
+    
+    def enable_i2c(self):
+        logging.info("Enabling I2C...")
+        subprocess.run(["sudo", "raspi-config", "nonint", "do_i2c", "0"], check=True)
+
+    def ensure_interfaces_enabled(self):
+        reboot_required = False
+        if not self.is_spi_enabled():
+            logging.warning("SPI not enabled. Enabling now...")
+            self.enable_spi()
+            reboot_required = True
+            else:
+                logging.info("SPI already enabled")
+
+        if not self.is_i2c_enabled():
+            logging.warning("I2C not enabled. Enabling now...")
+            self.enable_i2c()
+            reboot_required = True
+        else:
+            logging.info("I2C already enabled")
+
+        if reboot_required:
+            logging.warning("Reboot required to apply SPI/I2C changes")
+            self.oled.display_centered_text("Enabling SPI/I2C\nRebooting...")
+            time.sleep(2)
+            os.system("sudo reboot")
+            
     def bringup_can_interface(self):
         try:
             logging.info("Bringing up CAN interface can0...")
             subprocess.run(["sudo", "ip", "link", "set", "can0", "down"], check=True)
             subprocess.run(["sudo", "ip", "link", "set", "can0", "up","type", "can","bitrate", str(self.bitrate),"dbitrate", str(self.dbitrate),"restart-ms", str(self.restart_ms),"berr-reporting", "on","fd", "on"], check=True)
-            subprocess.run(["sudo", "ifconfig", "can0", "up"], check=True)
+            #subprocess.run(["sudo", "ifconfig", "can0", "up"], check=True)
             logging.info("CAN/I2c,SPI interface can0 successfully brought up.")
             
         except subprocess.CalledProcessError as e:
@@ -133,6 +176,7 @@ class UDSApp:
 
     def initialize_dependencies(self):
         GPIO.cleanup()
+        self.ensure_interfaces_enabled()
         display_config = {
             "width": 128,
             "height": 64,
