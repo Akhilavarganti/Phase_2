@@ -6,21 +6,44 @@ import sys
 class PiHardwareInit:
     def __init__(self):
         self.reboot_required = False
+        self.config_file = "/boot/config.txt"
 
-    # ---------------------------
-    # Helper
-    # ---------------------------
+    # ===========================
+    # Helper: Run shell command
+    # ===========================
     def _run(self, cmd):
+        print(f"➡️ {cmd}")
         try:
             result = subprocess.run(
-                cmd, shell=True, check=True,
+                cmd,
+                shell=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True
             )
+            if result.returncode != 0:
+                print(f"❌ Error: {result.stderr.strip()}")
             return result.stdout.strip()
-        except subprocess.CalledProcessError as e:
-            return e.stderr.strip()
+        except Exception as e:
+            print(f"❌ Exception: {e}")
+            return ""
+
+    # ===========================
+    # File helper
+    # ===========================
+    def _file_contains(self, text):
+        try:
+            with open(self.config_file, "r") as f:
+                return text in f.read()
+        except:
+            return False
+
+    def _append_if_missing(self, line):
+        if not self._file_contains(line):
+            with open(self.config_file, "a") as f:
+                f.write(line + "\n")
+            return True
+        return False
 
     # ===========================
     # SPI
@@ -34,8 +57,14 @@ class PiHardwareInit:
             return
 
         print("🔧 Enabling SPI...")
-        self._run("sudo raspi-config nonint do_spi 0")
-        self.reboot_required = True
+
+        changed = self._append_if_missing("dtparam=spi=on")
+
+        if changed:
+            self.reboot_required = True
+            print("✅ SPI enabled (reboot required)")
+        else:
+            print("⚠️ SPI config already present")
 
     # ===========================
     # I2C
@@ -49,42 +78,42 @@ class PiHardwareInit:
             return
 
         print("🔧 Enabling I2C...")
-        self._run("sudo raspi-config nonint do_i2c 0")
-        self.reboot_required = True
+
+        changed = self._append_if_missing("dtparam=i2c_arm=on")
+
+        if changed:
+            self.reboot_required = True
+            print("✅ I2C enabled (reboot required)")
+        else:
+            print("⚠️ I2C config already present")
 
     # ===========================
-    # CAN FD (MCP2517FD/2518FD)
+    # CAN FD (MCP2517FD / MCP2518FD)
     # ===========================
     def _canfd_configured(self):
-        try:
-            with open("/boot/config.txt", "r") as f:
-                return "mcp251xfd" in f.read()
-        except:
-            return False
+        return self._file_contains("mcp251xfd")
 
     def _enable_canfd(self):
         if self._canfd_configured():
             print("✅ CAN FD already configured")
             return
 
-        print("🔧 Enabling CAN FD (MCP2517FD/2518FD)...")
+        print("🔧 Enabling CAN FD...")
 
-        lines = [
-            "\n# CAN FD Setup",
-            "dtparam=spi=on",
-            "dtoverlay=mcp251xfd,spi0-0,interrupt=25",
-            "dtoverlay=spi-bcm2835"
-        ]
+        changes = False
 
-        try:
-            with open("/boot/config.txt", "a") as f:
-                f.write("\n".join(lines) + "\n")
+        changes |= self._append_if_missing("# CAN FD Setup")
+        changes |= self._append_if_missing("dtparam=spi=on")
+        changes |= self._append_if_missing(
+            "dtoverlay=mcp251xfd,spi0-0,interrupt=25"
+        )
+        changes |= self._append_if_missing("dtoverlay=spi-bcm2835")
 
+        if changes:
             self.reboot_required = True
-            print("✅ CAN FD config added")
-
-        except Exception as e:
-            print(f"❌ Failed to configure CAN FD: {e}")
+            print("✅ CAN FD config added (reboot required)")
+        else:
+            print("⚠️ CAN FD config already exists")
 
     # ===========================
     # CAN FD Bring-up
@@ -98,7 +127,7 @@ class PiHardwareInit:
 
     def _bringup_canfd(self):
         if not self._can_exists():
-            print("❌ CAN FD interface not found (reboot needed)")
+            print("❌ CAN FD interface not found (reboot likely needed)")
             return
 
         if self._can_up():
@@ -107,7 +136,6 @@ class PiHardwareInit:
 
         print("🔧 Bringing up CAN FD...")
 
-        # CAN FD specific settings
         self._run("sudo ip link set can0 down")
         self._run(
             "sudo ip link set can0 type can bitrate 500000 dbitrate 2000000 fd on"
@@ -120,7 +148,7 @@ class PiHardwareInit:
             print("❌ CAN FD bring-up failed")
 
     # ===========================
-    # Reboot Handler
+    # Reboot handler
     # ===========================
     def _handle_reboot(self):
         if self.reboot_required:
@@ -128,27 +156,24 @@ class PiHardwareInit:
             sys.stdout.flush()
             subprocess.run("sudo reboot", shell=True)
             sys.exit(0)
+        else:
+            print("\n✅ No reboot required")
 
     # ===========================
-    # PUBLIC METHOD (CALL THIS)
+    # PUBLIC ENTRY POINT
     # ===========================
     def initialize(self):
-        """
-        Call this from your main application.
-        Safe to call multiple times.
-        """
-
-        print("\n===== HW INIT (SPI + I2C + CAN FD) =====\n")
+        print("\n===== INITIALIZING HARDWARE =====\n")
 
         self._enable_spi()
         self._enable_i2c()
         self._enable_canfd()
 
-        # Reboot if first-time setup
+        # Reboot if needed (first-time setup)
         self._handle_reboot()
 
         # After reboot or if already configured
         print("\n--- CAN FD Bring-up ---")
         self._bringup_canfd()
 
-        print("\n===== INIT COMPLETE =====\n")
+        print("\n===== INITIALIZATION COMPLETE =====\n")
