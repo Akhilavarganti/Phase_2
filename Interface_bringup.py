@@ -6,7 +6,7 @@ import sys
 class PiHardwareInit:
     def __init__(self):
         self.reboot_required = False
-        self.config_file = "/boot/config.txt"
+        self.config_file = "/boot/firmware/config.txt"
 
     # ---------------------------
     # Command runner
