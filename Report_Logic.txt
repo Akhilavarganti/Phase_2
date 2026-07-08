@@ -1,0 +1,13 @@
+
+pc_execution_count = {}
+
+
+tc_id = current_request["tc_id"]
+
+if tc_id.startswith("PC_ID"):
+    pc_execution_count[tc_id] = pc_execution_count.get(tc_id, 0) + 1
+    grouped_tc_id = f"{tc_id}#{pc_execution_count[tc_id]}"
+else:
+    grouped_tc_id = tc_id
+
+messages_by_tc[grouped_tc_id].append(current_request)
