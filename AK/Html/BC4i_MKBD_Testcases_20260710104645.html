@@ -1,0 +1,2901 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UDS Diagnostic Report</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body { font-family: Arial; margin: 20px; }
+h1 { text-align: center; }
+
+.pass { color: green; font-weight: bold; }
+.fail { color: red; font-weight: bold; }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th { background: #f2f2f2; }
+
+.case {
+    border: 1px solid #aaa;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>UDS Diagnostic Report</h1>
+
+<p><b>File:</b> BC4i_MKBD_Testcases_20260710104645.asc</p>
+<p><b>Generated:</b> 2026-07-10 10:47:34</p>
+<p><b>Total:</b> 89</p>
+<p class="pass"><b>Passed:</b> 43</p>
+<p class="fail"><b>Failed:</b> 46</p>
+<p><b>Duration:</b> 41.656 sec</p>
+
+<canvas id="chart" width="200" height="200"></canvas>
+
+<script>
+var ctx = document.getElementById('chart').getContext('2d');
+new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Pass', 'Fail'],
+        datasets: [{
+            data: [43, 46],
+            backgroundColor: ['green','red']
+        }]
+    }
+});
+</script>
+
+<hr>
+
+<div class="case">
+<h3>PC_ID-043 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>15</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>16</td>
+<td>Start default session</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-370 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Start default session(10 02)</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-371 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Start default session(10 01)</td>
+<td>02 10 01</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td>06 50 01 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>PC_ID-044 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>15</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>16</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>17</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>18</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>19</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>20</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>21</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>22</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>23</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>24</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>25</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>26</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>27</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>28</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>29</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>30</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>31</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>32</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>33</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>34</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>35</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>36</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>03 7F 10 7E AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x7E: subFunctionNotSupportedInActiveSession)</td>
+</tr>
+
+<tr>
+<td>37</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>PC_ID-53 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Start Extended session</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-369 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Start Extended session(10 03)</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-372 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Start Extended session(10 03)</td>
+<td>02 10 03</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td>06 50 03 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>PC_ID-046 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>15</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>16</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>17</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>18</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+
+<tr>
+<td>19</td>
+<td>Start Programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>PC_ID-54 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Start programming session</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 00 C8 00</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="fail">Fail</td>
+<td>Response mismatch</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-368 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Start programming session(10 02)</td>
+<td>02 10 02</td>
+<td>06 50 02 00 32 00 C8 00</td>
+<td>06 50 02 00 32 01 F4 AA</td>
+<td class="fail">Fail</td>
+<td>Response mismatch</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-317 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>RX_SWIN_F1_EF_Read(Defaultsession)</td>
+<td>03 22 F1 EF</td>
+<td>10 2B 62 F1 EF 07 16 0B 52 31 30 20 42 43 34 2F 31 2F 30 0C 52 31 35 35 20 42 43 34 2F 31 2F 30 0C 52 31 35 36 20 42 43 34 2F 31 2F 30 AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-318 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>B_CAN_Database_Version_F1_00_Read(Defaultsession)</td>
+<td>03 22 F1 00</td>
+<td>06 62 F1 00 24 05 01 AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-319 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Vehicle_Manufacturer_Spare_Part_Number_F1_87_Read(Defaultsession)</td>
+<td>03 22 F1 87</td>
+<td>10 0D 62 F1 87 39 36 35 34 30 42 4E 30 30 30</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-320 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Manufacturing_F1_8B_Read(Defaultsession)</td>
+<td>03 22 F1 8B</td>
+<td>07 62 F1 8B 00 00 00 00</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-321 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ECU_Serial_Number_F1_8C_Read(Defaultsession)</td>
+<td>03 22 F1 8C</td>
+<td>10 23 62 F1 8C 00 00 00 00 00 00 00 00 00 00 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 AA AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-322 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Vehicle_Manufacturer_ECU_HW_Number_F1_91_Read(Defaultsession)</td>
+<td>03 22 F1 91</td>
+<td>10 08 62 F1 91 30 31 2E 30 30 AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-323 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>HardwareVersionNumber_F1_93_Read(Defaultsession)</td>
+<td>03 22 F1 93</td>
+<td>10 08 62 F1 93 30 31 2E 30 30 AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-324 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ECUSoftwareUnit1IVDDataIdentifier_F1_C1_Read(Defaultsession)</td>
+<td>03 22 F1 C1</td>
+<td>10 23 62 F1 C1 CC B4 57 EB E8 33 AD 7D A0 6E 1D DC 52 BD 11 F7 48 59 0A 90 EC A6 8D 75 50 19 08 80 F1 AB 2A 0E AA AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-325 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>SystemSupplierECUSoftwareVersionNumbe_DataIdentifier_F1_95_Read(Defaultsession)</td>
+<td>03 22 F1 95</td>
+<td>10 08 62 F1 95 32 34 2E 43 31 AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-326 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Software_Version_for_HKMC_Vehicle_Manufacture_F1_A0_Read(Defaultsession)</td>
+<td>03 22 F1 A0</td>
+<td>10 08 62 F1 A0 32 34 2E 43 31 AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-327 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ECU_Supplier_Code_F1_A1_Read(Defaultsession)</td>
+<td>03 22 F1 A1</td>
+<td>07 62 F1 A1 00 00 00 00</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-328 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ECU_Software_UNIT_number_F1_B0_Read(Defaultsession)</td>
+<td>03 22 F1 B0</td>
+<td>04 62 F1 B0 01 AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-329 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ECU_Software_UNIT1_Version_F1_B1_Read(Defaultsession)</td>
+<td>03 22 F1 B1</td>
+<td>10 0D 62 F1 B1 32 34 43 31 2E 30 31 2E 30 30</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-330 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>S_W_Version_Dataidentifier_F1_DD_Read(Defaultsession)</td>
+<td>03 22 F1 DD</td>
+<td>10 10 62 F1 DD 32 34 43 31 2E 30 31 2E 30 30 2E 30 30 AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-331 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>SystemNameOrEngineTypeDataIdentifier_Read(Defaultsession)</td>
+<td>03 22 F1 97</td>
+<td>07 62 F1 97 4D 4B 42 44</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-332 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>RX_SWIN_F1_EF_Read(Extended session)</td>
+<td>03 22 F1 EF</td>
+<td>10 2B 62 F1 EF 07 16 0B 52 31 30 20 42 43 34 2F 31 2F 30 0C 52 31 35 35 20 42 43 34 2F 31 2F 30 0C 52 31 35 36 20 42 43 34 2F 31 2F 30 AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-333 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>B_CAN_Database_Version_F1_00_Read(Extendedsession)</td>
+<td>03 22 F1 00</td>
+<td>06 62 F1 00 24 05 01 AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-334 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Vehicle_Manufacturer_Spare_Part_Number_F1_87_Read(Extendedsession)</td>
+<td>03 22 F1 87</td>
+<td>10 0D 62 F1 87 39 36 35 34 30 42 4E 30 30 30</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-335 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Manufacturing_F1_8B_Read(Extendedsession)</td>
+<td>03 22 F1 8B</td>
+<td>07 62 F1 8B 00 00 00 00</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-336 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ECU_Serial_Number_F1_8C_Read(Extendedsession)</td>
+<td>03 22 F1 8C</td>
+<td>10 23 62 F1 8C 00 00 00 00 00 00 00 00 00 00 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 20 AA AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-337 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Vehicle_Manufacturer_ECU_HW_Number_F1_91_Read(Extendedsession)</td>
+<td>03 22 F1 91</td>
+<td>10 08 62 F1 91 30 31 2E 30 30 AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-338 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>HardwareVersionNumber_F1_93_Read(Extendedsession)</td>
+<td>03 22 F1 93</td>
+<td>10 08 62 F1 93 30 31 2E 30 30 AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-339 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ECUSoftwareUnit1IVDDataIdentifier_F1_C1_Read(Extendedsession)</td>
+<td>03 22 F1 C1</td>
+<td>10 23 62 F1 C1 CC B4 57 EB E8 33 AD 7D A0 6E 1D DC 52 BD 11 F7 48 59 0A 90 EC A6 8D 75 50 19 08 80 F1 AB 2A 0E AA AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-340 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>SystemSupplierECUSoftwareVersionNumbe_DataIdentifier_F1_95_Read(Extendedsession)</td>
+<td>03 22 F1 95</td>
+<td>10 08 62 F1 95 32 34 2E 43 31 AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-341 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Software_Version_for_HKMC_Vehicle_Manufacture_F1_A0_Read(Extendedsession)</td>
+<td>03 22 F1 A0</td>
+<td>10 08 62 F1 A0 32 34 2E 43 31 AA AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-342 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ECU_Supplier_Code_F1_A1_Read(Extendedsession)</td>
+<td>03 22 F1 A1</td>
+<td>07 62 F1 A1 00 00 00 00</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-343 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ECU_Software_UNIT_number_F1_B0_Read(Extendedsession)</td>
+<td>03 22 F1 B0</td>
+<td>04 62 F1 B0 01 AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-344 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ECU_Software_UNIT1_Version_F1_B1_Read(Extendedsession)</td>
+<td>03 22 F1 B1</td>
+<td>10 0D 62 F1 B1 32 34 43 31 2E 30 31 2E 30 30</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-345 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>S_W_Version_Dataidentifier_F1_DD_Read(Extendedsession)</td>
+<td>03 22 F1 DD</td>
+<td>10 10 62 F1 DD 32 34 43 31 2E 30 31 2E 30 30 2E 30 30 AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-346 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>SystemNameOrEngineTypeDataIdentifier_Read(Extendedsession)</td>
+<td>03 22 F1 97</td>
+<td>07 62 F1 97 4D 4B 42 44</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-347 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Request out of range(22 F1FF)</td>
+<td>03 22 F1 FF</td>
+<td>03 7F 22 31 AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-351 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22)</td>
+<td>01 22</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-352 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Read DTC Extended session(19 02)</td>
+<td>03 19 02 08</td>
+<td>01 59 AA AA AA AA AA AA</td>
+<td>03 7F 19 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-353 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Disable RxAndTx Extended session(28 00 )</td>
+<td>03 28 00 02</td>
+<td>02 68 00 AA AA AA AA AA</td>
+<td>02 68 00 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-354 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Disable RxAndTx Extended session(28 00 )</td>
+<td>03 28 00 03</td>
+<td>02 68 00 AA AA AA AA AA</td>
+<td>02 68 00 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-355 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>EnableRxAndDisableTx Extended session(28 01)</td>
+<td>03 28 01 02</td>
+<td>02 68 01 AA AA AA AA AA</td>
+<td>02 68 01 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-356 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>EnableRxAndDisableTx Extended session(28 01)</td>
+<td>03 28 01 03</td>
+<td>02 68 01 AA AA AA AA AA</td>
+<td>02 68 01 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-357 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>DisableRxAndEnableTx Extended session(28 02)</td>
+<td>03 28 02 02</td>
+<td>02 68 02 AA AA AA AA AA</td>
+<td>02 68 02 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-358 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>DisableRxAndEnableTx Extended session(28 02)</td>
+<td>03 28 02 03</td>
+<td>02 68 02 AA AA AA AA AA</td>
+<td>02 68 02 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-359 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>DisableRxAndDisableTx Extended session(28 03)</td>
+<td>03 28 03 02</td>
+<td>02 68 03 AA AA AA AA AA</td>
+<td>02 68 03 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-360 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>DisableRxAndDisableTx Extended session(28 03)</td>
+<td>03 28 03 03</td>
+<td>02 68 03 AA AA AA AA AA</td>
+<td>02 68 03 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-361 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Soft reset(11 03)</td>
+<td>02 11 03</td>
+<td>02 51 03 AA AA AA AA AA</td>
+<td>03 7F 11 12 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x12: subFunctionNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-362 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Read DTC with Programming session(19 02)</td>
+<td>03 19 02 08</td>
+<td>06 59 01 08 00 00 00 AA</td>
+<td>03 7F 19 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-363 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Read DTC with Programming session(19 02)</td>
+<td>03 19 02 01</td>
+<td>03 59 02 08 AA AA AA AA</td>
+<td>03 7F 19 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-364 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Fault memory clear Extended session(14 FFFFFF)</td>
+<td>04 14 FF FF FF</td>
+<td>01 54 AA AA AA AA AA AA</td>
+<td>03 7F 14 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Fault memory clear Extended session(14 FFFFFF)</td>
+<td>04 14 FF FF FF</td>
+<td>01 54 AA AA AA AA AA AA</td>
+<td>01 54 AA AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-365 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Conditions not correct(invalid range)(14 8000FF)</td>
+<td>04 14 80 00 FF</td>
+<td>01 54 AA AA AA AA AA AA</td>
+<td>03 7F 14 11 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x11: serviceNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-366 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Softreset(11 03)</td>
+<td>02 11 03</td>
+<td>02 51 03 AA AA AA AA AA</td>
+<td>03 7F 11 12 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x12: subFunctionNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-367 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Dark current mode(10 D1)</td>
+<td>02 10 D1</td>
+<td>02 50 D1 AA AA AA AA AA</td>
+<td>03 7F 10 12 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x12: subFunctionNotSupported)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-373 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(10 02 01)</td>
+<td>03 10 02 01</td>
+<td>03 7F 10 13 AA AA AA AA</td>
+<td>03 7F 10 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-374 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(10 01 01)</td>
+<td>03 10 01 01</td>
+<td>03 7F 10 13 AA AA AA AA</td>
+<td>03 7F 10 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-376 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Sub function not supported(14FFFFF1)</td>
+<td>04 14 FF FF F1</td>
+<td>03 7F 14 12 AA AA AA AA</td>
+<td>03 7F 14 22 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Negative Response (0x22: conditionsNotCorrect)</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-378 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F18B02)</td>
+<td>04 22 F1 8B 02</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-379 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F18701)</td>
+<td>04 22 F1 87 01</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-380 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F1A001)</td>
+<td>04 22 F1 A0 01</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-381 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F19504)</td>
+<td>04 22 F1 95 04</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-382 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F1B001)</td>
+<td>04 22 F1 B0 01</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-383 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F19101)</td>
+<td>04 22 F1 91 01</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-384 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F1EF02)</td>
+<td>04 22 F1 EF 02</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-385 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F10001)</td>
+<td>04 22 F1 00 01</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-386 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Read DTC with Extended session(19 02)</td>
+<td>03 19 02 01</td>
+<td>07 59 02 01 B2 80 00 08</td>
+<td>03 59 02 01 AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Response mismatch</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-388 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(10 03 01)</td>
+<td>03 10 03 01</td>
+<td>03 7F 10 13 AA AA AA AA</td>
+<td>03 7F 10 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-391 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F18701)</td>
+<td>04 22 F1 87 01</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-392 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F19703)</td>
+<td>04 22 F1 97 03</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-393 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F1A101)</td>
+<td>04 22 F1 A1 01</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-394 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F1B104)</td>
+<td>04 22 F1 B1 04</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-395 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F13101)</td>
+<td>04 22 F1 31 01</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-396 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(22F1C101)</td>
+<td>04 22 F1 C1 01</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td>03 7F 22 13 AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-397 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Disable Rx and Tx(28 00 )</td>
+<td>03 28 00 01</td>
+<td>02 68 00 AA AA AA AA AA</td>
+<td>02 68 00 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-398 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Disable Rx and Tx(28 00 )</td>
+<td>03 28 00 02</td>
+<td>02 68 00 AA AA AA AA AA</td>
+<td>02 68 00 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-399 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Disable Rx and Tx(28 00 )</td>
+<td>03 28 00 03</td>
+<td>02 68 00 AA AA AA AA AA</td>
+<td>02 68 00 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-389 - <span class="fail">Fail</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Incorrect message length(28 01 01 01)</td>
+<td>03 28 01 01</td>
+<td>03 7F 28 13 AA AA AA AA</td>
+<td>02 68 01 AA AA AA AA AA</td>
+<td class="fail">Fail</td>
+<td>Response mismatch</td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-400 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>EnableRxAndDisableTx Extended session(28 01)</td>
+<td>03 28 01 02</td>
+<td>02 68 01 AA AA AA AA AA</td>
+<td>02 68 01 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-401 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>EnableRxAndDisableTx Extended session(28 01)</td>
+<td>03 28 01 03</td>
+<td>02 68 01 AA AA AA AA AA</td>
+<td>02 68 01 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-403 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>DisableRxAndEnableTx Extended session(28 02)</td>
+<td>03 28 02 01</td>
+<td>02 68 02 AA AA AA AA AA</td>
+<td>02 68 02 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-404 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>DisableRxAndEnableTx Extended session(28 02)</td>
+<td>03 28 02 02</td>
+<td>02 68 02 AA AA AA AA AA</td>
+<td>02 68 02 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-405 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>DisableRxAndEnableTx Extended session(28 02)</td>
+<td>03 28 02 03</td>
+<td>02 68 02 AA AA AA AA AA</td>
+<td>02 68 02 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-406 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>DisableRxAndDisableTx Extended session(28 03)</td>
+<td>03 28 03 01</td>
+<td>02 68 03 AA AA AA AA AA</td>
+<td>02 68 03 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-407 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>DisableRxAndDisableTx Extended session(28 03)</td>
+<td>03 28 03 02</td>
+<td>02 68 03 AA AA AA AA AA</td>
+<td>02 68 03 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div>
+<div class="case">
+<h3>TC_ID-408 - <span class="pass">Pass</span></h3>
+
+<table>
+<tr>
+<th>Step</th>
+<th>Description</th>
+<th>Request</th>
+<th>Expected</th>
+<th>Actual</th>
+<th>Status</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>DisableRxAndDisableTx Extended session(28 03)</td>
+<td>03 28 03 03</td>
+<td>02 68 03 AA AA AA AA AA</td>
+<td>02 68 03 AA AA AA AA AA</td>
+<td class="pass">Pass</td>
+<td></td>
+</tr>
+</table></div></body></html>
