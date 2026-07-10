@@ -80,24 +80,12 @@ def get_description(data_bytes):
             sub = ''.join(data_bytes[sid_index + 1: sid_index + 1 + length]).upper() if length > 0 else ""
             key = (sid, sub)
             if key in DESCRIPTION_MAP:
-                used = getattr(get_description, "used_tc_ids", set())
-                for desc, tc_id, expected_resp, fmt in DESCRIPTION_MAP[key]:
-                    if tc_id not in used:
-                        used.add(tc_id)
-                        setattr(get_description, "used_tc_ids", used)
-                        return desc, tc_id, expected_resp, fmt
-                return DESCRIPTION_MAP[key][0]
+                return DESCRIPTION_MAP[key].pop(0) if DESCRIPTION_MAP[key] else ("", "", "", "")
 
     # Try fallback: SID only
     key = (sid, "")
     if key in DESCRIPTION_MAP:
-        used = getattr(get_description, "used_tc_ids", set())
-        for desc, tc_id, expected_resp in DESCRIPTION_MAP[key]:
-            if tc_id not in used:
-                used.add(tc_id)
-                setattr(get_description, "used_tc_ids", used)
-                return desc, tc_id, expected_resp
-        return DESCRIPTION_MAP[key][0]
+        return DESCRIPTION_MAP[key].pop(0) if DESCRIPTION_MAP[key] else ("", "", "", "")
 
     return "", "", "", ""
 
