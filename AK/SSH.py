@@ -68,11 +68,15 @@ def add_key_to_agent(private_key_path):
     # Check if already added
     result = subprocess.run(["ssh-add", "-l"], capture_output=True, text=True)
 
-    if private_key_path in result.stdout:
-        print("Key already added to agent")
+    if "The agent has no identities" not in result.stderr:
+        print("Key may already be added")
+        return
     else:
-        subprocess.run(["ssh-add", private_key_path], check=True)
-        print("Key added successfully")
+        result = subprocess.run(["ssh-add", private_key_path],capture_output=True,text=True)
+    if result.returncode != 0:
+        print("ERROR:", result.stderr)
+        raise Exception("ssh-add failed")
+    print("Key added successfully")
 
 
 def setup_ssh():
