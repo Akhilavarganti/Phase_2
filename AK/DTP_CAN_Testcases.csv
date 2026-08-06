@@ -1,0 +1,49 @@
+﻿TC_ID/PC_ID,Pre-Conditions,Category,Type,Stage,Variant,Service_ID,Service_ID_Description,SubService_ID,Testcase_Description,Reference_Document_And_Version,Expected_Response_Data,DLC,Status_Mask,Communication_Type,controltype,Write_Data,Addressing,Format,Comments,UDS 14229 Section,ES95486,OEM specification
+TC_ID-003,,Standard,Normal,,,0x10,Diagnostic Session Control (0x10),0x03,Start Extended session,,06 50 03 00 32 01 F4 AA,4 Bytes,,,,,Physical,Hex,,9.2,4.1.1,4.1.3
+TC_ID-004,,Standard,Abnormal,,,0x10,Diagnostic Session Control (0x10),0xFF,Sub function not supported(10 FF),,03 7F 10 12 AA AA AA AA,-,,,,,Physical,Hex,,9.2,4.1.1,4.1.3
+TC_ID-005,,Standard,Abnormal,,,0x10,Diagnostic Session Control (0x10),,Incorrect message length(No sub function)(10),,03 7F 10 13 AA AA AA AA,4 Bytes,,,,,Physical,Hex,,9.2,4.1.1,4.1.3
+TC_ID-006,,Standard,Abnormal,,,0x10,Diagnostic Session Control (0x10),0x0101,Incorrect message length(10 01 01 ),,0x13,-,,,,,Physical,Hex,,9.2,4.1.1,4.1.3
+TC_ID-007,,Standard,Normal,,,0x11,ECU Reset (0x11),0x01,Hard reset,,02 51 01 AA AA AA AA AA,-,,,,,Physical,Hex,,9.3,4.2.1,5.1.3
+TC_ID-008,,Standard,Normal,,,0x11,ECU Reset (0x11),0x03,Soft reset,,02 51 03 AA AA AA AA AA,-,,,,,Physical,Hex,Unable to receive positive response in Canoe,9.3,4.2.1,5.1.3
+TC_ID-009,,Standard,Abnormal,,,0x11,ECU Reset (0x11),0x08,Sub function not supported(out ofrange)(11 08),,03 7F 11 12 AA AA AA AA,-,,,,,Physical,Hex,,9.3,4.2.1,5.1.3
+TC_ID-010,,Standard,Abnormal,,,0x11,ECU Reset (0x11),,Incorrect message length(No sub function)(11),,03 7F 11 13 AA AA AA AA,-,,,,,Physical,Hex,,9.3,4.2.1,5.1.3
+TC_ID-011,,Standard,Abnormal,,,0x11,ECU Reset (0x11),-,Service not supported in Active session,,0x7F,-,,,,,Physical,Hex,"MKBD ECU Limitation:At present, MKBD supports in Default and Extended diagnostic sessions. NRC cannot be reproduced.",9.3,4.2.1,5.1.3
+TC_ID-012,,Standard,Abnormal,,,0x11,ECU Reset (0x11),0x0101,Incorrect message length(11 01 01 ),,0x7F,-,,,,,Physical,Hex,,9.3,4.2.1,5.1.3
+PC_ID-001,,Standard,Pre-Condition,,,0x10,Diagnostic Session Control (0x10),0x03,Start Extended session,,06 50 03 00 32 01 F4 AA,-,,,,,Physical,Hex,,9.2,4.1.1,4.1.3
+TC_ID-013,PC_ID-001,Standard,Normal,,,0x28,Communication Control (0x28),0x00,Disable Rx and Tx(28 00 ),,02 68 00 AA AA AA AA AA,-,,0x01,,,Functional,Hex,Getting NRC in Canoe,9.5,4.4.1,5.1.4
+TC_ID-014,PC_ID-001,Standard,Normal,,,0x28,Communication Control (0x28),0x01,EnableRxAndDisableTx Extended session(28 01),,02 68 01 AA AA AA AA AA,-,,0x01,,,Functional,Hex,,9.5,4.4.1,5.1.4
+TC_ID-015,PC_ID-001,Standard,Normal,,,0x28,Communication Control (0x28),0x02,DisableRxAndEnableTx Extended session(28 02),,02 68 02 AA AA AA AA AA,-,,0x01,,,Functional,Hex,,9.5,4.4.1,5.1.4
+TC_ID-016,PC_ID-001,Standard,Normal,,,0x28,Communication Control (0x28),0x03,DisableRxAndDisableTx Extended session(28 03),,02 68 03 AA AA AA AA AA,-,,0x01,,,Functional,Hex,,9.5,4.4.1,5.1.4
+TC_ID-017,PC_ID-001,Standard,Abnormal,,,0x28,Communication Control (0x28),0x08,Subfunction not supported(28 08),,03 7F 28 12 AA AA AA AA,-,,0x01,,,Functional,Hex,Getting NRC in Canoe,9.5,4.4.1,5.1.4
+TC_ID-018,,Standard,Abnormal,,,0x28,Communication Control (0x28),Communication control when not allowed in current session,Conditions not correct,,0x7F,-,,,,,Functional,Hex,Getting NRC in Canoe,9.5,4.4.1,5.1.4
+TC_ID-019,,Standard,Abnormal,,,0x28,Communication Control (0x28),,Incorrect message length,,03 7F 28 13 AA AA AA AA,-,,,,,Functional,Hex,This test case is not executing in Rasberry pi,9.5,4.4.1,5.1.4
+TC_ID-020,PC_ID-001,Standard,Abnormal,,,0x28,Communication Control (0x28),0xFF03,Service not supported in Active session(Extended)(28 FF 03),,0x7F,-,,,,,Functional,Hex,Getting NRC in Canoe,9.5,4.4.1,5.1.4
+TC_ID-021,,Standard,Abnormal,,,0x85,Control DTC Setting (0x85),,incorrect message length(No sub function) with Default session(85),,03 7F 85 13,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+PC_ID-002,,Standard,Pre-Condition,,,0x10,Diagnostic Session Control (0x10),0x01,Start Default session,,06 50 01 00 32 01 F4 AA,-,,,,,Physical,Hex,,9.2,4.1.1,4.1.3
+TC_ID-022,PC_ID-002,Standard,Abnormal,,,0x85,Control DTC Setting (0x85),0x01,DTC setting ON wrong Session(85 01),,03 7F 85 7F AA AA AA AA,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+TC_ID-023,PC_ID-002,Standard,Abnormal,,,0x85,Control DTC Setting (0x85),0x02,DTC setting OFF wrong Session(85 02),,03 7F 85 7F AA AA AA AA,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+TC_ID-024,PC_ID-002,Standard,Abnormal,,,0x85,Control DTC Setting (0x85),0x01,Service not supported in active session(Default)(85 01),,03 7F 85 7F AA AA AA AA,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+TC_ID-025,PC_ID-002,Standard,Abnormal,,,0x85,Control DTC Setting (0x85),0xFF,Invalid sub function(85 FF),,03 7F 85 7F AA AA AA AA,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+TC_ID-026,PC_ID-002,Standard,Abnormal,,,0x85,Control DTC Setting (0x85),0xFFFF,Service not supported(Double sub function)(85 FF FF),,0x7F,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+TC_ID-027,,Standard,Abnormal,,,0x85,Control DTC Setting (0x85),,Incorrect message length(No sub function) with Extended session(85),,03 7F 85 7F,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+PC_ID-003,,Standard,Pre-Condition,,,0x10,Diagnostic Session Control (0x10),0x03,Start Extended session,,06 50 03 00 32 01 F4 AA,-,,,,,Physical,Hex,,9.2,4.1.1,4.1.3
+TC_ID-028,PC_ID-003,Standard,Normal,,,0x85,Control DTC Setting (0x85),0x01,DTC setting ON Pre-condition extended(85 01),,02 C5 01 AA AA AA AA AA,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+TC_ID-029,PC_ID-003,Standard,Normal,,,0x85,Control DTC Setting (0x85),0x02,DTC setting OFF Pre-condition extended(85 02),,02 C5 02 AA AA AA AA AA,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+TC_ID-030,PC_ID-003,Standard,Abnormal,,,0x85,Control DTC Setting (0x85),0x08,Sub function not supported(not valid sub function)(85 08),,03 7F 85 12 AA AA AA AA,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+TC_ID-031,PC_ID-003,Standard,Abnormal,,,0x85,Control DTC Setting (0x85),0xFFFF,Sub function not supported(Double sub function)(85 FF FF),,0x7F,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+TC_ID-032,PC_ID-003,Standard,Abnormal,,,0x85,Control DTC Setting (0x85),0x0A,Invalid sub function(85 0A),,03 7F 85 12 AA AA AA AA,-,,,,,Physical,Hex,,9.9,4.8.3,5.1.6
+TC_ID-033,PC_ID-003,Standard,Normal,,,0x19,Read DTC Information (0x19),0x01,Read DTC with Extended session(19 01),,06 59 01 08 00 00 00 AA,4Bytes,0x08,,,,Physical,Hex,,11.3,6.2.1,5.1.2
+TC_ID-034,PC_ID-003,Standard,Normal,,,0x19,Read DTC Information (0x19),0x02,Read DTC Extended session(19 02),,03 59 02 08 AA AA AA AA,-,0x08,,,,Physical,Hex,"According to the specification, 59 02 08 must arrive, but in this case, 59 02 00",11.3,6.2.1,4.5
+TC_ID-035,PC_ID-003,Standard,Abnormal,,,0x19,Read DTC Information (0x19),0x0A,ReportSupportedDTC(19 0A),,02 59 0A AA AA AA AA AA,-,0x00,,,,Physical,Hex,,11.3,6.2.1,5.1.2
+TC_ID-036,PC_ID-003,Standard,Abnormal,,,0x19,Read DTC Information (0x19),0x0F,Subfunction not supported(No Mask)(19 0F)Subfunction not supported(19 0F 08 ),,03 7F 19 12 AA AA AA AA,-,0x08,,,,Physical,Hex,,11.3,6.2.1,4.5
+TC_ID-037,PC_ID-003,Standard,Abnormal,,,0x19,Read DTC Information (0x19),0x0E,Subfunction not supported(19 0E),,03 7F 19 12 AA AA AA AA,-,0x08,,,,Physical,Hex,,11.3,6.2.1,4.5
+TC_ID-038,PC_ID-003,Standard,Abnormal,,,0x19,Read DTC Information (0x19),0xFF,Subfunction not supported(properMask improper record with 0xFF)(19 FF),,03 7F 19 12 AA AA AA AA,-,0x08,,,,Physical,Hex,,11.3,6.2.1,4.5
+TC_ID-039,,Standard,Abnormal,,,0x19,Read DTC Information (0x19),-,Pending Response(Depends on ECU),,0x59,-,,,,,Physical,Hex,"MKBD ECU Limitation:0x78 indicates that the server (ECU) has received the request and is processing it, but cannot respond with the final result yet. The ECU sends this as a temporary negative response to avoid timing out the diagnostic tester.",11.3,6.2.1,4.5
+TC_ID-040,,Standard,Abnormal,,,0x19,Read DTC Information (0x19),0x0F 0x01,Request out of range(invalid status Byte)(19 0F 01),,0x12,-,,,,,Physical,Hex,MKBD ECU Limitation:unable to create 0x31(Request out of range)Given out of range value it is showing 0x12(sub function not supported),11.3,6.2.1,4.5
+TC_ID-041,,Standard,Abnormal,,,0x19,Read DTC Information (0x19),,Incorrect message length(No Read records)(19 0F),,03 7F 19 13 AA AA AA AA,-,,,,,Physical,Hex,This test case is not executing in Rasberry pi,11.3,6.2.1,4.5
+PC_ID-006,,MKBD,Pre-Condition,,,0x10,Diagnostic Session Control (0x10),0x01,Start default session,,06 50 01 00 32 01 F4 AA,-,,,,,Physical,Hex,,9.2,4.1.1,5.1.1
+TC_ID-080,PC_ID-006,Standard,Normal,,,0x3E,Tester Present (0x3E),0x00,Tester present(3E 00),,02 7E 00 AA AA AA AA AA,-,,,,,Physical,Hex,,9.6,4.6,-
+TC_ID-081,PC_ID-006,Standard,Abnormal,,,0x3E,Tester Present (0x3E),0xFF,Sub function not supported(with wrong sub function)(3E FF),,03 7F 3E 12 AA AA AA AA,-,,,,,Physical,Hex,,9.6,4.6,-
+PC_ID-007,,MKBD,Pre-Condition,,,0x10,Diagnostic Session Control (0x10),0x03,Start Extended session,,06 50 03 00 32 01 F4 AA,-,,,,,Physical,Hex,,9.2,4.1.1,5.1.1
+TC_ID-082,PC_ID-007,Standard,Normal,,,0x3E,Tester Present (0x3E),0x00,Tester present(3E 00),,02 7E 00 AA AA AA AA AA,-,,,,,Physical,Hex,,9.6,4.6,-
+TC_ID-083,PC_ID-007,Standard,Abnormal,,,0x3E,Tester Present (0x3E),0xFF,Sub function not supported(with wrong sub function)(3E FF),,03 7F 3E 12 AA AA AA AA,-,,,,,Physical,Hex,,9.6,4.6,-
