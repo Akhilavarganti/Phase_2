@@ -1,0 +1,10 @@
+2026-08-05 12:34:08,388 [INFO] Checking openssh-client...
+2026-08-05 12:34:08,420 [INFO] openssh-client already installed
+2026-08-05 12:34:08,421 [INFO] Checking ssh-agent...
+2026-08-05 12:34:08,421 [INFO] ssh-agent already running
+2026-08-05 12:34:08,433 [INFO] Private key already exists
+2026-08-05 12:34:08,434 [INFO] Public key already exists
+2026-08-05 12:34:08,435 [INFO] Adding key to ssh-agent...
+2026-08-05 12:34:08,671 [INFO] Key added successfully
+2026-08-05 12:34:08,672 [INFO] SSH setup completed ✔
+2026-08-05 12:34:08,771 [INFO] ------------- Wifi Setup -------------
