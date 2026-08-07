@@ -1,0 +1,5 @@
+26'08/06:
+
+New_5_trial3_final
+1.Code changes in git_manager.py to clone selected branch and push results to selected branch
+Output copied from local to git

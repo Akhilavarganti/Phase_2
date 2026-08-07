@@ -1,0 +1,13 @@
+26'08/07:
+
+New_6_branch_report_creation:
+1.changed code from creation of output files in local folder----> git repository folder
+Done
+530180608_MQ4i_MFSW_LP2_2608061432_20260807_153848.html
+530180608_MQ4i_MFSW_LP2_2608061432_20260807_153848.asc
+
+26'08/06:
+
+New_5_trial3_final
+1.Code changes in git_manager.py to clone selected branch and push results to selected branch
+Output copied from local to git
