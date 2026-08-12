@@ -130,6 +130,46 @@ class ssh_key_setup:
             )
 
         logging.info("SSH key added successfully.")
+        
+        @staticmethod
+    def ensure_known_host():
+        ssh_dir = os.path.expanduser("~/.ssh")
+        known_hosts = os.path.join(ssh_dir, "known_hosts")
+    
+        os.makedirs(ssh_dir, mode=0o700, exist_ok=True)
+    
+        if not os.path.exists(known_hosts):
+            open(known_hosts, "a").close()
+            os.chmod(known_hosts, 0o644)
+    
+        # Check whether bitbucket.org is already present
+        result = subprocess.run(
+            ["ssh-keygen", "-F", "bitbucket.org", "-f", known_hosts],
+            capture_output=True,
+            text=True
+        )
+    
+        if result.returncode == 0:
+            logging.info("bitbucket.org already exists in known_hosts.")
+            return
+    
+        logging.info("Adding bitbucket.org to known_hosts...")
+    
+        result = subprocess.run(
+            ["ssh-keyscan", "-H", "bitbucket.org"],
+            capture_output=True,
+            text=True
+        )
+    
+        if result.returncode != 0 or not result.stdout.strip():
+            raise RuntimeError(
+                "Failed to retrieve Bitbucket host key:\n" + result.stderr
+            )
+    
+        with open(known_hosts, "a") as f:
+            f.write(result.stdout)
+    
+        logging.info("bitbucket.org added to known_hosts successfully.")
     
     @staticmethod
     def configure_git_identity():
