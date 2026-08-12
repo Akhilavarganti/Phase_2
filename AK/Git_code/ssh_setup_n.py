@@ -130,60 +130,61 @@ class ssh_key_setup:
             )
 
         logging.info("SSH key added successfully.")
+    
     @staticmethod
-def configure_git_identity():
-
-    logging.info("Checking Git identity...")
-
-    name_result = subprocess.run(
-        ["git", "config", "--global", "user.name"],
-        capture_output=True,
-        text=True
-    )
-
-    email_result = subprocess.run(
-        ["git", "config", "--global", "user.email"],
-        capture_output=True,
-        text=True
-    )
-
-    user_name = name_result.stdout.strip()
-    user_email = email_result.stdout.strip()
-
-    # Both are already configured
-    if user_name and user_email:
+    def configure_git_identity():
+    
+        logging.info("Checking Git identity...")
+    
+        name_result = subprocess.run(
+            ["git", "config", "--global", "user.name"],
+            capture_output=True,
+            text=True
+        )
+    
+        email_result = subprocess.run(
+            ["git", "config", "--global", "user.email"],
+            capture_output=True,
+            text=True
+        )
+    
+        user_name = name_result.stdout.strip()
+        user_email = email_result.stdout.strip()
+    
+        # Both are already configured
+        if user_name and user_email:
+            logging.info(
+                "Git identity already configured: %s <%s>",
+                user_name,
+                user_email
+            )
+            return
+    
+        # Ask only for missing details
+        if not user_name:
+            user_name = input("Enter Git user name: ").strip()
+    
+        if not user_email:
+            user_email = input("Enter Git email: ").strip()
+    
+        if not user_name or not user_email:
+            raise RuntimeError("Git user name and email cannot be empty.")
+    
+        subprocess.run(
+            ["git", "config", "--global", "user.name", user_name],
+            check=True
+        )
+    
+        subprocess.run(
+            ["git", "config", "--global", "user.email", user_email],
+            check=True
+        )
+    
         logging.info(
-            "Git identity already configured: %s <%s>",
+            "Git identity configured: %s <%s>",
             user_name,
             user_email
         )
-        return
-
-    # Ask only for missing details
-    if not user_name:
-        user_name = input("Enter Git user name: ").strip()
-
-    if not user_email:
-        user_email = input("Enter Git email: ").strip()
-
-    if not user_name or not user_email:
-        raise RuntimeError("Git user name and email cannot be empty.")
-
-    subprocess.run(
-        ["git", "config", "--global", "user.name", user_name],
-        check=True
-    )
-
-    subprocess.run(
-        ["git", "config", "--global", "user.email", user_email],
-        check=True
-    )
-
-    logging.info(
-        "Git identity configured: %s <%s>",
-        user_name,
-        user_email
-    )
 
     @staticmethod
     def setup_ssh():
